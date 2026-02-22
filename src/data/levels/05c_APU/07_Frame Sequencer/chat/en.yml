@@ -51,4 +51,5 @@ exercise:
     **->** add a `frameSequencer` property with a new instance
     **->** add the `onQuarterFrameClock()` and `onHalfFrameClock()` methods, for now, empty
     **->** call ```javascript this.frameSequencer.step()``` after incrementing the sample counter
+      (before checking if the sample counter is 20)
   responses: []

@@ -51,4 +51,5 @@ exercise:
     **->** agrega una propiedad `frameSequencer` con una nueva instancia
     **->** agrega los métodos `onQuarterFrameClock()` y `onHalfFrameClock()`, por ahora vacíos
     **->** llama a ```javascript this.frameSequencer.step()``` después de incrementar el contador de samples
+      (antes de verificar si el contador de samples es 20)
   responses: []
