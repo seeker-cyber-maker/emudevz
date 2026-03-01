@@ -29,7 +29,7 @@ const PROTECTED_PATHS = [];
 export default {
 	PATH_INVALID_CHARACTERS: /[^a-z0-9/._-]/gi,
 	INVALID_CHARACTERS: /[^a-z0-9._-]/gi,
-	MAX_FILE_NAME_LENGTH: 50,
+	MAX_FILE_NAME_LENGTH: 65,
 
 	MAIN_FILE,
 	CODE_DIR,
