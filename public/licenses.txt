@@ -63,6 +63,21 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ===
+question.mp3
+answer.mp3
+===
+
+by ColorAlpha
+
+LICENSE:
+
+1. You can use the sounds for commercial and non-commercial projects.
+2. If you use the sounds for a commercial project consider donate something.
+3. Give credit to the asset pack in any case,  even if you edit the sounds.
+
+https://coloralpha.itch.io/50-menu-interface-sfx
+
+===
 Falling.neees
 ===
 
@@ -160,6 +175,32 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----
+
+The following software may be included in this product: cm6-themes. A copy of the source code may be downloaded from https://github.com/craftzdog/cm6-themes.git. This software contains the following license and notice below:
+
+MIT License
+
+Copyright (C) 2022 by Takuya Matsuyama <hi+github@craftz.dog> and others
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 THE FOLLOWING SETS FORTH ATTRIBUTION NOTICES FOR THIRD PARTY SOFTWARE THAT MAY BE CONTAINED IN PORTIONS OF THE EMUDEVZ PRODUCT.
 
 -----
@@ -215,7 +256,7 @@ THE SOFTWARE.
 
 -----
 
-The following software may be included in this product: @codemirror/autocomplete, @codemirror/commands, @codemirror/lang-angular, @codemirror/lang-cpp, @codemirror/lang-css, @codemirror/lang-html, @codemirror/lang-java, @codemirror/lang-javascript, @codemirror/lang-json, @codemirror/lang-less, @codemirror/lang-lezer, @codemirror/lang-markdown, @codemirror/lang-php, @codemirror/lang-python, @codemirror/lang-rust, @codemirror/lang-sass, @codemirror/lang-sql, @codemirror/lang-vue, @codemirror/lang-wast, @codemirror/lang-xml, @codemirror/language, @codemirror/language-data, @codemirror/legacy-modes, @codemirror/lint, @codemirror/search, @codemirror/state, @codemirror/theme-one-dark, @codemirror/view, codemirror. A copy of the source code may be downloaded from https://github.com/codemirror/autocomplete.git (@codemirror/autocomplete), https://github.com/codemirror/commands.git (@codemirror/commands), https://github.com/codemirror/lang-angular.git (@codemirror/lang-angular), https://github.com/codemirror/lang-cpp.git (@codemirror/lang-cpp), https://github.com/codemirror/lang-css.git (@codemirror/lang-css), https://github.com/codemirror/lang-html.git (@codemirror/lang-html), https://github.com/codemirror/lang-java.git (@codemirror/lang-java), https://github.com/codemirror/lang-javascript.git (@codemirror/lang-javascript), https://github.com/codemirror/lang-json.git (@codemirror/lang-json), https://github.com/codemirror/lang-less.git (@codemirror/lang-less), https://github.com/codemirror/lang-lezer.git (@codemirror/lang-lezer), https://github.com/codemirror/lang-markdown.git (@codemirror/lang-markdown), https://github.com/codemirror/lang-php.git (@codemirror/lang-php), https://github.com/codemirror/lang-python.git (@codemirror/lang-python), https://github.com/codemirror/lang-rust.git (@codemirror/lang-rust), https://github.com/codemirror/lang-sass.git (@codemirror/lang-sass), https://github.com/codemirror/lang-sql.git (@codemirror/lang-sql), https://github.com/codemirror/lang-vue.git (@codemirror/lang-vue), https://github.com/codemirror/lang-wast.git (@codemirror/lang-wast), https://github.com/codemirror/lang-xml.git (@codemirror/lang-xml), https://github.com/codemirror/language.git (@codemirror/language), https://github.com/codemirror/language-data.git (@codemirror/language-data), https://github.com/codemirror/legacy-modes.git (@codemirror/legacy-modes), https://github.com/codemirror/lint.git (@codemirror/lint), https://github.com/codemirror/search.git (@codemirror/search), https://github.com/codemirror/state.git (@codemirror/state), https://github.com/codemirror/theme-one-dark.git (@codemirror/theme-one-dark), https://github.com/codemirror/view.git (@codemirror/view), https://github.com/codemirror/basic-setup.git (codemirror). This software contains the following license and notice below:
+The following software may be included in this product: @codemirror/autocomplete, @codemirror/commands, @codemirror/lang-angular, @codemirror/lang-cpp, @codemirror/lang-css, @codemirror/lang-html, @codemirror/lang-java, @codemirror/lang-javascript, @codemirror/lang-json, @codemirror/lang-less, @codemirror/lang-lezer, @codemirror/lang-markdown, @codemirror/lang-php, @codemirror/lang-python, @codemirror/lang-rust, @codemirror/lang-sass, @codemirror/lang-sql, @codemirror/lang-vue, @codemirror/lang-wast, @codemirror/lang-xml, @codemirror/language, @codemirror/language-data, @codemirror/legacy-modes, @codemirror/lint, @codemirror/search, @codemirror/state, @codemirror/theme-one-dark, @codemirror/view, codemirror. A copy of the source code may be downloaded from git+https://github.com/codemirror/autocomplete.git (@codemirror/autocomplete), git+https://github.com/codemirror/commands.git (@codemirror/commands), https://github.com/codemirror/lang-angular.git (@codemirror/lang-angular), https://github.com/codemirror/lang-cpp.git (@codemirror/lang-cpp), https://github.com/codemirror/lang-css.git (@codemirror/lang-css), https://github.com/codemirror/lang-html.git (@codemirror/lang-html), https://github.com/codemirror/lang-java.git (@codemirror/lang-java), git+https://github.com/codemirror/lang-javascript.git (@codemirror/lang-javascript), https://github.com/codemirror/lang-json.git (@codemirror/lang-json), https://github.com/codemirror/lang-less.git (@codemirror/lang-less), https://github.com/codemirror/lang-lezer.git (@codemirror/lang-lezer), https://github.com/codemirror/lang-markdown.git (@codemirror/lang-markdown), https://github.com/codemirror/lang-php.git (@codemirror/lang-php), https://github.com/codemirror/lang-python.git (@codemirror/lang-python), https://github.com/codemirror/lang-rust.git (@codemirror/lang-rust), https://github.com/codemirror/lang-sass.git (@codemirror/lang-sass), https://github.com/codemirror/lang-sql.git (@codemirror/lang-sql), https://github.com/codemirror/lang-vue.git (@codemirror/lang-vue), https://github.com/codemirror/lang-wast.git (@codemirror/lang-wast), https://github.com/codemirror/lang-xml.git (@codemirror/lang-xml), git+https://github.com/codemirror/language.git (@codemirror/language), https://github.com/codemirror/language-data.git (@codemirror/language-data), https://github.com/codemirror/legacy-modes.git (@codemirror/legacy-modes), git+https://github.com/codemirror/lint.git (@codemirror/lint), git+https://github.com/codemirror/search.git (@codemirror/search), git+https://github.com/codemirror/state.git (@codemirror/state), https://github.com/codemirror/theme-one-dark.git (@codemirror/theme-one-dark), git+https://github.com/codemirror/view.git (@codemirror/view), https://github.com/codemirror/basic-setup.git (codemirror). This software contains the following license and notice below:
 
 MIT License
 
@@ -293,7 +334,33 @@ THE SOFTWARE.
 
 -----
 
-The following software may be included in this product: @codemirror/lang-liquid. A copy of the source code may be downloaded from https://github.com/codemirror/lang-liquid.git. This software contains the following license and notice below:
+The following software may be included in this product: @codemirror/lang-jinja. A copy of the source code may be downloaded from https://github.com/codemirror/lang-jinja.git. This software contains the following license and notice below:
+
+MIT License
+
+Copyright (C) 2025 by Marijn Haverbeke <marijn@haverbeke.berlin> and others
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-----
+
+The following software may be included in this product: @codemirror/lang-liquid. A copy of the source code may be downloaded from git+https://github.com/codemirror/lang-liquid.git. This software contains the following license and notice below:
 
 MIT License
 
@@ -1648,7 +1715,7 @@ limitations under the License.
 
 -----
 
-The following software may be included in this product: @types/earcut, @types/hoist-non-react-statics, @types/offscreencanvas, @types/parse-json, @types/prop-types, @types/react, @types/react-redux, @types/react-transition-group, @types/warning. A copy of the source code may be downloaded from https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/earcut), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/hoist-non-react-statics), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/offscreencanvas), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/parse-json), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/prop-types), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/react), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/react-redux), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/react-transition-group), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/warning). This software contains the following license and notice below:
+The following software may be included in this product: @types/earcut, @types/hoist-non-react-statics, @types/node, @types/offscreencanvas, @types/parse-json, @types/prop-types, @types/react, @types/react-redux, @types/react-transition-group, @types/warning. A copy of the source code may be downloaded from https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/earcut), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/hoist-non-react-statics), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/node), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/offscreencanvas), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/parse-json), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/prop-types), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/react), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/react-redux), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/react-transition-group), https://github.com/DefinitelyTyped/DefinitelyTyped.git (@types/warning). This software contains the following license and notice below:
 
 MIT License
 
@@ -2086,7 +2153,7 @@ SOFTWARE.
 
 The following software may be included in this product: convert-source-map. A copy of the source code may be downloaded from git://github.com/thlorenz/convert-source-map.git. This software contains the following license and notice below:
 
-Copyright 2013 Thorsten Lorenz.
+Copyright 2013 Thorsten Lorenz. 
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person
@@ -4858,7 +4925,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -----
 
-The following software may be included in this product: resolve. A copy of the source code may be downloaded from git://github.com/browserify/resolve.git. This software contains the following license and notice below:
+The following software may be included in this product: resolve. A copy of the source code may be downloaded from ssh://github.com/browserify/resolve.git. This software contains the following license and notice below:
 
 MIT License
 
@@ -5105,6 +5172,32 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -----
 
+The following software may be included in this product: steamworks.js. A copy of the source code may be downloaded from https://github.com/ceifa/steamworks.js. This software contains the following license and notice below:
+
+MIT License
+
+Copyright (c) 2022 Gabriel Francisco Dos Santos
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-----
+
 The following software may be included in this product: string_decoder. A copy of the source code may be downloaded from git://github.com/nodejs/string_decoder.git. This software contains the following license and notice below:
 
 Node.js is licensed for use as follows:
@@ -5331,6 +5424,32 @@ The following software may be included in this product: uncontrollable. A copy o
 The MIT License (MIT)
 
 Copyright (c) 2015 Jason Quense
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-----
+
+The following software may be included in this product: undici-types. A copy of the source code may be downloaded from git+https://github.com/nodejs/undici.git. This software contains the following license and notice below:
+
+MIT License
+
+Copyright (c) Matteo Collina and Undici contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -5604,28 +5723,3 @@ OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
 WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
 ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
------
-
-The following software may be included in this product: cm6-themes. A copy of the source code may be downloaded from https://github.com/craftzdog/cm6-themes.git. This software contains the following license and notice below:
-
-MIT License
-
-Copyright (C) 2022 by Takuya Matsuyama <hi+github@craftz.dog> and others
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.

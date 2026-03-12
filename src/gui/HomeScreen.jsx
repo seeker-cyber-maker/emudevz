@@ -1,11 +1,15 @@
 import React, { PureComponent } from "react";
 import { Layer, Stage } from "@pixi/layers";
+import GraphemeSplitter from "grapheme-splitter";
+import { isEmojiSupported } from "is-emoji-supported";
 import { CRTFilter } from "pixi-filters";
 import { PointLight, lightGroup } from "pixi-lights";
 import * as PIXI from "pixi.js";
 import { Toaster } from "react-hot-toast";
 import { FaTimes } from "react-icons/fa";
 import { connect } from "react-redux";
+import _ from "lodash";
+import dictionary from "../data/dictionary";
 import Book from "../level/Book";
 import locales from "../locales";
 import { dlc } from "../utils";
@@ -38,6 +42,10 @@ const CRT_SPEED = 0.25;
 const MIN_WIDTH = 512;
 const MIN_HEIGHT = 256;
 const LOGO_MAX_SIZE = 256;
+const ERROR_SAFARI =
+	"Sorry, Safari has known issues that break the game. Please use a Chromium-based browser or Firefox.";
+const ERROR_EMOJIS =
+	"Your system can't display some emojis used by the game. You can still play, but the vibes will be compromised!";
 
 class HomeScreen extends PureComponent {
 	state = { fontsLoaded: false };
@@ -351,13 +359,8 @@ class HomeScreen extends PureComponent {
 				});
 		}
 
-		const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-		const isSafari = /^((?!chrome|chromium|android).)*safari/i.test(userAgent);
-		if (isSafari) {
-			alert(
-				"Sorry, Safari has known issues that break the game. Please use a Chromium-based browser or Firefox."
-			);
-		}
+		this._showSafariWarningIfNeeded();
+		this._showEmojiWarningIfNeeded();
 
 		switch (this.props.gameMode) {
 			case "free":
@@ -400,6 +403,33 @@ class HomeScreen extends PureComponent {
 
 	_canPlay() {
 		return true;
+	}
+
+	_showSafariWarningIfNeeded() {
+		const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		const isSafari = /^((?!chrome|chromium|android).)*safari/i.test(userAgent);
+		if (isSafari) alert(ERROR_SAFARI);
+	}
+
+	_showEmojiWarningIfNeeded() {
+		const splitter = new GraphemeSplitter();
+		const unsupportedEmojis = _(dictionary.entries)
+			.values()
+			.map((it) => it.icon)
+			.flatMap((it) => splitter.splitGraphemes(it))
+			.uniq()
+			.reject((it) => {
+				try {
+					return isEmojiSupported(it);
+				} catch {
+					return true;
+				}
+			})
+			.value();
+		if (!_.isEmpty(unsupportedEmojis)) {
+			console.warn("⚠️ Unsupported emojis", unsupportedEmojis);
+			alert(ERROR_EMOJIS);
+		}
 	}
 }
 
