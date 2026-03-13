@@ -23,6 +23,7 @@ golden:
   - hasta ahora, solo he ejecutado pruebas básicas en tu código
   - esto abarcará todo tipo de casos extremos, verificando que tu CPU sea sólida
   - si encuentras discrepancias, tendrás que averiguar la causa o buscar ayuda en línea
+  - puedes editar tus archivos usando el botón "Buscar archivos..." en la esquina superior derecha
   - ¡usa el botón ⏩  y llega al final del golden log!
   run-after-messages: |
     set((m) => {

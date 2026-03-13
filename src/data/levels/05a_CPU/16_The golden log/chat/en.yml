@@ -23,6 +23,7 @@ golden:
   - so far, I only ran basic tests to your code
   - this will go through all types of corner cases, verifying that your CPU is solid
   - if you find discrepancies, you'll have to figure out the cause or ask for help online
+  - you can edit your files using the "Search files..." button in the top-right corner
   - use the ⏩  button and reach the end of the golden log!
   run-after-messages: |
     set((m) => {
