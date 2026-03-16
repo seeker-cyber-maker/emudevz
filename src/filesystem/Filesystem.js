@@ -59,6 +59,11 @@ class Filesystem {
 		}
 	}
 
+	isBusy() {
+		// HACK: I know it's private, but I really need to access _queueRunning here!
+		return this.fs?.getRootFS()?._queueRunning ?? false;
+	}
+
 	ls(path, displayPath = path) {
 		const content = this.fs
 			.readdirSync(this.process(path || "/"))
@@ -308,4 +313,6 @@ class Filesystem {
 	}
 }
 
-export default new Filesystem();
+window.FS = new Filesystem();
+
+export default window.FS;

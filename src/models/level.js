@@ -37,8 +37,12 @@ async function navigate(_dispatch_, path, go = push) {
 		// wait until any pending writes are flushed
 		Level.startEffect("running", { sfx: false });
 		try {
+			// rematch-persist
 			const persistor = getPersistor();
 			await persistor.flush();
+
+			// browserfs
+			await waitUntilBrowserFsAsyncMirrorIsIdle();
 		} finally {
 			Level.stopEffect();
 		}
@@ -150,4 +154,19 @@ export default {
 
 function shouldPreventReload() {
 	return getAdvancedSetting((obj) => obj.layout?.preventReload);
+}
+
+function waitUntilBrowserFsAsyncMirrorIsIdle() {
+	return new Promise((resolve) => {
+		const check = () => {
+			if (!window.FS?.isBusy()) {
+				resolve();
+				return;
+			}
+
+			requestAnimationFrame(check);
+		};
+
+		check();
+	});
 }
