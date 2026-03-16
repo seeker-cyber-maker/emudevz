@@ -1,7 +1,3 @@
-// This is based on commit #a66f2a1b66e8e1da82453e1a080177884a92b892
-// https://github.com/flyover/imgui-js
-// [!] The code was modified to prevent ImGui from setting a global Ctrl+C trap that was breaking copy/paste in CodeMirror
-// To review the changes, compare this file with `imgui_impl.umd.bak.js`
 (function (global, factory) {
 	typeof exports === "object" && typeof module !== "undefined"
 		? factory(exports, require("imgui-js"))
@@ -228,6 +224,11 @@
 		if (typeof navigator !== "undefined") {
 			io.ConfigMacOSXBehaviors = navigator.platform.match(/Mac/) !== null;
 		}
+		if (typeof document !== "undefined") {
+			document.body.addEventListener("copy", document_on_copy);
+			document.body.addEventListener("cut", document_on_cut);
+			document.body.addEventListener("paste", document_on_paste);
+		}
 		io.SetClipboardTextFn = (user_data, text) => {
 			clipboard_text = text;
 			// console.log(`set clipboard_text: "${clipboard_text}"`);
@@ -359,6 +360,11 @@
 				"gamepaddisconnected",
 				window_on_gamepaddisconnected
 			);
+		}
+		if (typeof document !== "undefined") {
+			document.body.removeEventListener("copy", document_on_copy);
+			document.body.removeEventListener("cut", document_on_cut);
+			document.body.removeEventListener("paste", document_on_paste);
 		}
 	}
 	function NewFrame(time) {
