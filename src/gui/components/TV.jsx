@@ -220,7 +220,10 @@ export default class TV extends PureComponent {
 						onError={(e) => {
 							content.onError(e);
 						}}
-						onClose={() => this.setContent(null, "rom")}
+						onClose={() => {
+							if (window.EmuDevz.state.isRunningEmulatorTest) return;
+							this.setContent(null, "rom");
+						}}
 					/>
 				);
 			}
@@ -236,7 +239,10 @@ export default class TV extends PureComponent {
 						onError={(e) => {
 							content.onError(e);
 						}}
-						onClose={() => this.setContent(null, "rom")}
+						onClose={() => {
+							if (window.EmuDevz.state.isRunningEmulatorTest) return;
+							this.setContent(null, "rom");
+						}}
 					/>
 				);
 			}
