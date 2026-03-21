@@ -214,7 +214,11 @@ it("calls `onFrame(...)` every time `step(...)` reaches a <new frame>", () => {
   for (let frame = 0; frame < 1; frame++) {
     for (let scanline = -1; scanline < 261; scanline++) {
       for (let cycle = 0; cycle < 341; cycle++) {
-        ppu.step(onFrame, noop);
+        ppu.step((buffer) => {
+          if (scanline !== 260 || cycle !== 340)
+            throw new Error("onFrame(...) was called at the wrong time");
+          onFrame(buffer);
+        }, noop);
       }
     }
   }
