@@ -8,6 +8,7 @@ main:
   - (*) ¿así que la NEEES, eh? [name]
   - (*) ¿el juego requiere <conocimientos de programación>? [requirements]
   - (*) ¿qué <temas> se tratan? [topics]
+  - (*) ¿esto está generado con <IA>? [ai]
   - (*) ¿es <gratis> / de código abierto? [free]
 
 why:
@@ -92,10 +93,21 @@ accuracy:
   responses:
   - ...main
 
+ai:
+  messages:
+  - no!!!
+  - simplemente me gustan los emojis 😅
+  - empecé a escribir el juego cuando los LLMs todavía no eran algo común
+  - luego, los emojis empezaron a asociarse con cosas de IA
+  - y ya era un poco tarde para cambiar todo
+  - así que decidí adoptar el estilo!
+  responses:
+  - ...main
+
 free:
   messages:
   - lo es 👍
-  - aunque si te gusta el trabajo, con gusto aceptaría donaciones :-)
+  - aunque si te gusta el proyecto, agradecería mucho tu apoyo :-)
   - básicamente el código está bajo licencia <MIT>, mientras que los niveles están bajo <CC BY-NC>
   - revisa la sección de <Créditos> para todos los detalles
   responses:

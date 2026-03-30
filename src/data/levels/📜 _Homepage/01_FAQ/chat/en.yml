@@ -9,6 +9,7 @@ main:
   - (*) so the NEEES, huh? [name]
   - (*) does the game require <programming knowledge>? [requirements]
   - (*) what <topics> are covered? [topics]
+  - (*) is this <AI> generated? [ai]
   - (*) is this <free> / open-source? [free]
 
 why:
@@ -94,10 +95,21 @@ accuracy:
   responses:
   - ...main
 
+ai:
+  messages:
+  - no!!!
+  - I just like emojis 😅
+  - I started writing the game when LLMs weren't mainstream yet
+  - then, emojis started being associated with AI stuff
+  - and it was a bit too late to change everything
+  - so I decided to embrace the style!
+  responses:
+  - ...main
+
 free:
   messages:
   - it is 👍
-  - though if you like the work, I'd happily accept donations :-)
+  - though if you like the project, I'd really appreciate your support :-)
   - basically the code is <MIT>-licensed while the levels are <CC BY-NC>
   - check out the <Credits> section for all the details
   responses:

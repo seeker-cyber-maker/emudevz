@@ -14,7 +14,17 @@
 					"subtitle": {
 						"en": "",
 						"es": ""
-					}
+					},
+					"links": [
+						{
+							"text": "your support",
+							"isSupport": true
+						},
+						{
+							"text": "tu apoyo",
+							"isSupport": true
+						}
+					]
 				}
 			]
 		},
