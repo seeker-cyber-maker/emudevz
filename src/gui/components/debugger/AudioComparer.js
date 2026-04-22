@@ -7,11 +7,13 @@ const ImGui = window.ImGui;
 
 // Knobs
 const WAVE_HEIGHT = 20;
-const VOLUME = 0.1;
+const DEFAULT_VOLUME = 0.1;
 const NON_MIX_FACTOR = 0.01;
 const SAMPLE_EPSILON = 1e-4;
 const MIN_WINDOW = 100;
 const MAX_WINDOW = 1000;
+const MIN_VOLUME = 0;
+const MAX_VOLUME = 1;
 
 const MIN = 0;
 const MAX = 15;
@@ -28,6 +30,7 @@ export default GenericDebugger(
 			this._currentSamples = null;
 			this._trimPercent = 100;
 			this._window = 500;
+			this._volume = DEFAULT_VOLUME;
 		}
 
 		draw() {
@@ -84,6 +87,19 @@ export default GenericDebugger(
 								MIN_WINDOW,
 								MAX_WINDOW,
 								"%d"
+							);
+							if (disable) ImGui.EndDisabled();
+						});
+
+						widgets.fullWidthFieldWithLabel("Volume", (label) => {
+							const disable = !!this._player;
+							if (disable) ImGui.BeginDisabled(true);
+							ImGui.SliderFloat(
+								label,
+								(v = this._volume) => (this._volume = v),
+								MIN_VOLUME,
+								MAX_VOLUME,
+								"%.2f"
 							);
 							if (disable) ImGui.EndDisabled();
 						});
@@ -302,7 +318,7 @@ export default GenericDebugger(
 					} catch {
 						this._stopSpeaker();
 					}
-				}, VOLUME * (key !== "mix" ? NON_MIX_FACTOR : 1));
+				}, this._volume * (key !== "mix" ? NON_MIX_FACTOR : 1));
 
 				await speaker.start();
 				this._player = { speaker, id };
