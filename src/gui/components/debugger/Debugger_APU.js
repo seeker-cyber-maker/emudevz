@@ -15,6 +15,14 @@ const DUTY_SEQUENCE = [
 ];
 const DUTY_PERCENTAGES = ["12.5%", "25%", "50%", "75"];
 
+function isEnabled(channel) {
+	try {
+		return channel?.isEnabled?.() ?? false;
+	} catch {
+		return false;
+	}
+}
+
 export default class Debugger_APU {
 	constructor(args) {
 		this.args = args;
@@ -185,7 +193,7 @@ export default class Debugger_APU {
 					const volumeOrEnvelopePeriod =
 						channel?.registers?.control.volumeOrEnvelopePeriod ?? 0;
 
-					widgets.boolean("Enabled", channel?.isEnabled?.() ?? false);
+					widgets.boolean("Enabled", isEnabled(channel));
 					ImGui.SameLine();
 					widgets.boolean("Constant", constantVolume);
 					widgets.value("Timer", channel?.timer ?? 0);
@@ -278,7 +286,7 @@ export default class Debugger_APU {
 
 			widgets.wave(triangle, maxN, MIN, MAX);
 
-			widgets.boolean("Enabled", channel?.isEnabled?.() ?? false);
+			widgets.boolean("Enabled", isEnabled(channel));
 			widgets.value("Timer", channel?.timer ?? 0);
 			widgets.value("  => Freq", `${frequency.toFixed(2)} hz`);
 			widgets.value("Sample", triangle[triangle.length - 1] ?? 0);
@@ -331,7 +339,7 @@ export default class Debugger_APU {
 			const volumeOrEnvelopePeriod =
 				channel?.registers?.control.volumeOrEnvelopePeriod ?? 0;
 
-			widgets.boolean("Enabled", channel?.isEnabled?.());
+			widgets.boolean("Enabled", isEnabled(channel));
 			ImGui.SameLine();
 			widgets.boolean("Constant", constantVolume);
 			ImGui.SameLine();
@@ -389,7 +397,7 @@ export default class Debugger_APU {
 
 			widgets.wave(dmc, maxN, DMC_MIN, DMC_MAX);
 
-			widgets.boolean("Enabled", channel?.isEnabled?.());
+			widgets.boolean("Enabled", isEnabled(channel));
 			widgets.value("Sample", dmc[dmc.length - 1] ?? 0);
 
 			widgets.simpleTable("dmc_dpcm", "DPCM", () => {
