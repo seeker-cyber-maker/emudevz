@@ -67,17 +67,20 @@ export default EditorView.domEventHandlers({
 		// defer indent so language services/extensions settle
 		view.focus();
 		requestAnimationFrame(() => {
-			const sel = view.state.selection.main;
-			const selStart = Math.min(sel.anchor, sel.head);
-			const selEnd = Math.max(sel.anchor, sel.head);
-			const overlapsPaste = selStart < pasteEnd && selEnd > pasteStart;
+			if (
+				pasteStart > view.state.doc.length ||
+				pasteEnd > view.state.doc.length
+			)
+				return;
 
-			if (overlapsPaste) {
-				indentSelection(view);
-				const s = view.state.selection.main;
-				const end = Math.max(s.anchor, s.head);
-				view.dispatch({ selection: { anchor: end }, scrollIntoView: true });
-			}
+			view.dispatch({
+				selection: { anchor: pasteStart, head: pasteEnd },
+			});
+
+			indentSelection(view);
+			const selection = view.state.selection.main;
+			const end = Math.max(selection.anchor, selection.head);
+			view.dispatch({ selection: { anchor: end }, scrollIntoView: true });
 		});
 
 		return true;
