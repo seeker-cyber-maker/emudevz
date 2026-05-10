@@ -31,7 +31,7 @@ finish:
     const directory = `${Drive.ROMS_DIR}`;
     filesystem.mkdirp(directory);
 
-    ["MinekartMadness.neees"].forEach((file) => {
+    ["MinekartMadness.neees", "GuildQuest.neees"].forEach((file) => {
       filesystem.cp(`${Drive.ALLROMS_DIR}/${file}`, `${directory}/${file}`);
     });
   messages:
