@@ -159,6 +159,8 @@ export default class NEEESTester extends PureComponent {
 			});
 			return true;
 		} catch (e) {
+			console.error(e);
+
 			const message = this._getMessage(e);
 			this.setState({ _error: message });
 			return false;
