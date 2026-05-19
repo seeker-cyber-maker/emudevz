@@ -157,6 +157,7 @@ class MultiFile extends PureComponent {
 			"file-search": this._focusAndSearch,
 			"file-opened": this._onFileOpened,
 			"file-closed": this._onFileClosed,
+			"file-written": () => this.forceUpdate(),
 			"root-enabled": () => this.forceUpdate(),
 		});
 	}
@@ -343,7 +344,7 @@ class MultiFile extends PureComponent {
 					},
 					setCode: (code) => {
 						try {
-							filesystem.write(filePath, code);
+							filesystem.write(filePath, code, { silent: true });
 						} catch (e) {
 							console.error(e);
 							this._closeSelectedFile();

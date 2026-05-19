@@ -4,7 +4,7 @@ import _ from "lodash";
 import Book from "../level/Book";
 import locales from "../locales";
 import store from "../store";
-import { blob } from "../utils";
+import { blob, bus } from "../utils";
 
 const INDEXED_DB_STORE_NAME = "emudevz";
 const HIDDEN_PREFIX = ".";
@@ -143,6 +143,7 @@ class Filesystem {
 		}
 
 		this.fs.writeFileSync(path, data);
+		if (!options.silent) bus.emit("file-written", { filePath: path });
 	}
 
 	cp(filePath, newFilePath) {
@@ -252,6 +253,7 @@ class Filesystem {
 
 		store.dispatch.savedata.closeFile(oldPath);
 		this.fs.renameSync(oldPath, newPath);
+		bus.emit("file-written", { filePath: newPath });
 	}
 
 	exists(path) {
