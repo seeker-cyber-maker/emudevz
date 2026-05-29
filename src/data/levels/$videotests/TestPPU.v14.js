@@ -536,7 +536,7 @@ class BackgroundRenderer {
 			}
 
 			const scrolledX = this.ppu.loopy.scrolledX(x);
-			const scrolledY = this.ppu.loopy.scrolledY(y);
+			const scrolledY = this.ppu.loopy.scrolledY();
 			const nameTableId = this.ppu.loopy.nameTableId(scrolledX);
 			const nameTableX = scrolledX % 256;
 			const nameTableY = scrolledY % 240;
