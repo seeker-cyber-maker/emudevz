@@ -61,6 +61,11 @@
 			"rom": "/roms/.all/SuperTiltBro.neees",
 			"frames": 120,
 			"ppu": "TestPPU.v5.js"
+		},
+		{
+			"rom": "/roms/.all/Nalleland.neees",
+			"frames": 90,
+			"ppu": "TestPPU.v5.js"
 		}
 	],
 	"memory": {
