@@ -83,7 +83,7 @@ export class NameTableRenderer {
 				const tile = new Tile(this.ppu, patternTableId, tileId, tileInsideY);
 				const tilePixels = Math.min(
 					TILE_SIZE_PIXELS - tileStartX,
-					SCREEN_WIDTH - nameTableX
+					SCREEN_WIDTH - x
 				);
 
 				for (let xx = 0; xx < tilePixels; xx++) {

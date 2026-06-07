@@ -129,7 +129,7 @@ then:
       const tileInsideY = nameTableY % 8;
       const tilePixels = Math.min(
         8 - tileStartX,
-        256 - nameTableX
+        256 - x
       );```
   - remember, you won't be drawing 8 pixels per loop iteration anymore, you will only draw `tilePixels`, starting from `tileStartX`
   - |-

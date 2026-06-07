@@ -129,7 +129,7 @@ then:
       const tileInsideY = nameTableY % 8;
       const tilePixels = Math.min(
         8 - tileStartX,
-        256 - nameTableX
+        256 - x
       );```
   - recuerda, ya no dibujarás 8 píxeles por iteración de bucle, solo dibujarás `tilePixels`, empezando desde `tileStartX`
   - |-
