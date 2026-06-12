@@ -32,7 +32,7 @@ export default class UploadCommand extends FilesystemCommand {
 								)}...`
 							);
 							filesystem.write(processedPath, file.content, {
-								binary: customArgs.binary,
+								binary: customArgs.binary || this._isBinary,
 							});
 						}
 						resolve();
@@ -43,5 +43,9 @@ export default class UploadCommand extends FilesystemCommand {
 				resolve
 			);
 		});
+	}
+
+	get _isBinary() {
+		return this._includes("-bin");
 	}
 }
