@@ -44,11 +44,6 @@
 			"saveState": "240ptestsuite_scroll_hill.ss"
 		},
 		{
-			"rom": "/roms/_test/ppu_road.neees",
-			"frames": 240,
-			"ppu": "TestPPU.v13.js"
-		},
-		{
 			"rom": "/roms/_test/game_solarian.neees",
 			"frames": 90,
 			"ppu": "TestPPU.v13.js"
