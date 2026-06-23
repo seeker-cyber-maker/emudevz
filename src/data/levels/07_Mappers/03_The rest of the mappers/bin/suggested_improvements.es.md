@@ -27,11 +27,11 @@ En el posjuego, puedes agregar tantos mappers para la NEEES como desees. Sin emb
 BrokenNEEES normalmente ejecuta una instrucción (que tarda `N` ciclos) y luego ejecuta `N * 3` puntos de la PPU para ponerse al día. Si se produce una NMI durante cualquiera de estos puntos, la CPU salta inmediatamente al _manejador de interrupciones_. Esa última parte no es ideal. Una CPU real funciona más o menos así:
 ```
 - Inicio
-- Obtener la siguiente instrucción    <
-- Decodificar la instrucción           |
-- Ejecutar la instrucción              |
-- ¿Hay una interrupción pendiente? --no
--   |---sí---> Atender la interrupción
+- Obtener la siguiente instrucción    < <
+- Decodificar la instrucción           | |
+- Ejecutar la instrucción              | |
+- ¿Hay una interrupción pendiente? --no  |
+-   |---sí---> Atender la interrupción --|
 ```
 
 Por lo tanto, en el hardware real, la PPU (que funciona en paralelo) solo _solicitaría_ la interrupción. La CPU terminaría la instrucción actual antes de atenderla. Cuando un dispositivo _solicita_ una interrupción, puede seguir solicitándola hasta que la interrupción sea _reconocida_. Reconocer una interrupción significa eliminar la condición que provocó la solicitud. El simple hecho de atender la interrupción (saltar al _manejador de interrupciones_) no necesariamente la reconoce, por lo que la interrupción puede permanecer pendiente hasta que se lea o escriba el registro correspondiente.
@@ -60,7 +60,7 @@ Prioridades de interrupción sugeridas, de mayor a menor, y quién debería enca
 
 <br />
 
-Enviar las interrupciones de esta forma también permite emular con mayor precisión las IRQ de los mappers, porque los juegos pueden indicar al mapper o a otro componente de hardware que las interrupciones fueron atendidas o canceladas. De lo contrario, en la NEEES real, los dispositivos continuarían enviando constantemente su señal de interrupción. Manejar las interrupciones de esta manera también permitiría que la PPU señale VBlank en el ciclo 1, como corresponde, en lugar de hacerlo en el ciclo 0, como se indicó en un capítulo anterior.
+Enviar las interrupciones de esta forma también permite emular con mayor precisión las IRQ de los mappers, porque los juegos pueden indicar al mapper o a otro componente de hardware que las interrupciones fueron atendidas o canceladas. De lo contrario, en la NEEES real, los dispositivos continuarían enviando constantemente su señal de interrupción. Manejar las interrupciones de esta manera también permitiría que la PPU señale VBlank en el ciclo `1`, como corresponde, en lugar de hacerlo en el ciclo `0`, como se indicó en un capítulo anterior.
 
 Esta lista de sugerencias no proporcionará un tutorial completo, pero considera agregar a la CPU algo similar a un pseudorregistro llamado `PendingInterrupts`, que lleve el control de las interrupciones pendientes. Puedes hacerlo con `InMemoryRegister` para mantener el estado de todas ellas, o con un booleano para cada origen de interrupción: Reset, NMI, BRK, frame de la APU, DMC de la APU y mapper. Luego, proporciona métodos sencillos como `raise(id)` y `acknowledge(id)` que activen y desactiven esos booleanos. Después, en el método `step()` de la CPU, en lugar de devolver `this._addCycles(operation)`, devuelve una llamada a un método como `this._checkInterrupts(cycles)`. Dentro de ese método, comprueba cuál es la interrupción pendiente con mayor prioridad y, si existe alguna, haz que la CPU atienda la interrupción (`this.interrupt(...)`) y devuelve el parámetro `cycles`, modificándolo si se atendió la interrupción.
 
@@ -70,7 +70,7 @@ Por supuesto, hay muchas formas de manejar y reconocer interrupciones pendientes
 
 También hay muchas áreas en las que se puede mejorar la PPU. Sin embargo, este tema sería demasiado extenso y quedaría fuera del alcance de este pequeño documento de sugerencias. En su lugar, estos son dos ejemplos breves de aspectos que pueden mejorarse:
 
-- Tiles ficticios en `BackgroundRenderer`: La PPU de la NEEES real pide más de 32 tiles por scanline, aunque no hace gran cosa con ellos, ¡y algunos mappers como `MMC2` y `MMC4` detectan estas lecturas! Para simplificar, los capítulos anteriores solo pedían 32. Realizar estas lecturas que normalmente no se utilizan permitirá que ciertos juegos que usan `MMC2` y `MMC4` funcionen sin errores gráficos. En `BackgroundRenderer::renderScanline()`, haz que el bucle continúe hasta `x < 272` y dibuja píxeles del fondo únicamente cuando `x < 256` (deja que el bucle siga haciendo todo lo demás; no se necesitan más cambios). Después de hacer esto, notarás que el juego relacionado con `un boxeador desfavorecido que aspira a llegar a la cima` ya no debería mostrar un cuadrilátero corrupto o con errores gráficos.
+- Tiles ficticios en `BackgroundRenderer`: La PPU de la NEEES real pide más de `32` tiles por scanline, aunque no hace gran cosa con ellos, ¡y algunos mappers como `MMC2` y `MMC4` detectan estas lecturas! Para simplificar, los capítulos anteriores solo pedían `32`. Realizar estas lecturas que normalmente no se utilizan permitirá que ciertos juegos que usan `MMC2` y `MMC4` funcionen sin errores gráficos. En `BackgroundRenderer::renderScanline()`, haz que el bucle continúe hasta `x < 272` y dibuja píxeles del fondo únicamente cuando `x < 256` (deja que el bucle siga haciendo todo lo demás; no se necesitan más cambios). Después de hacer esto, notarás que el juego relacionado con `un boxeador desfavorecido que aspira a llegar a la cima` ya no debería mostrar un cuadrilátero corrupto o con errores gráficos.
 
 - `SpriteRenderer`: Si mejoras la PPU lo suficiente como para que funcione el `juego de boxeo`, hay un pequeño cambio que conviene realizar en el renderizado de sprites. Notarás que el boxeador oponente se convierte en un conjunto desordenado de tiles con errores gráficos cuando realiza sus ataques especiales. Para corregirlo, basta con hacer que el método `_evaluate()` deje de devolver una lista de sprites en orden inverso. Sin embargo, esto crea problemas en otros juegos, como el `tercer juego del plomero`, que necesita que la lista de sprites esté invertida para poder colocar a los enemigos detrás de las tuberías y crear la ilusión de que salen de ellas. Para conciliar ambos casos, podrías:
     - Reescribir por completo el renderizado de sprites para mejorar su precisión, o:
