@@ -29,7 +29,7 @@ By sending interrupts this way, it also allows for more accurate emulation of ma
 
 This suggestion list won't provide a full tutorial, but consider adding something like a pseudo-register to your CPU called `PendingInterrupts`, which keeps track of what IRQs are pending. This can be done with `InMemoryRegister` to keep track of all of them, or one boolean for each interrupt source: Reset, NMI, BRK, APU frame, APU DMC, and the mapper. Then provide simple methods like `raise(id)` and `acknowledge(id)` that set and clear those booleans. Then, back in your CPU's `step()` method, instead of returning `this._addCycles(operation)`, return a method like `this.checkInterrupts(cycles)` instead. In that method, see which interrupt of the highest priority is ready to go, and if any are, have your CPU take the interrupt (`this.interrupt`) and return the `cycles` parameter, modifying it if the interrupt was taken.
 
-Of course, there are many ways of handling pending interrupts and acknowledging them, so feel free to learn and experiment! Internal devices were chosen to be the top priorities for this example. If you end up writing a completely cycle-accurate emulator, remember that it would need to stop what it's doing in the middle of a CPU instruction to handle an interrupt instead!
+Of course, there are many ways of handling pending interrupts and acknowledging them, so feel free to learn and experiment! Internal devices were chosen to be the top priorities for this example.
 
 ### PPU
 
