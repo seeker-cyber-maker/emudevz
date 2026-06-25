@@ -51,7 +51,7 @@ exercise:
     **step(onSample)**:
       **->** incrementa el contador de samples
       **->** si es momento de producir un nuevo sample:
-        **->** resetea el contador de samples
+        **->** reinicia el contador de samples
         **->** llama a `onSample(...)` con el sample actual (```javascript this.sample```)
   - 📚  luego, importa tu archivo desde 📄  ~/code/index.js~
   - y agrega la correspondiente clave `APU` al objeto exportado

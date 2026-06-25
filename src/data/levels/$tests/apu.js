@@ -3274,7 +3274,7 @@ it("`NoiseChannel`: `sample()` returns 0 when disabled or length counter inactiv
 })({
   locales: {
     es:
-      "`NoiseChannel`: `sample()` retorna 0 cuando está deshabilitado o el contador de longitud <no está activo>",
+      "`NoiseChannel`: `sample()` retorna 0 cuando está desactivado o el contador de longitud <no está activo>",
   },
   use: ({ id }, book) => id >= book.getId("5c.14"),
 });

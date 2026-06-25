@@ -79,7 +79,7 @@ exercise:
   - |-
     📚  por último, <modifica> en 📊  `PPUStatus`:
     **onRead()**:
-      **->** luego de resetear `isInVBlankInterval`, también resetea el `latch` de 📍  `PPUAddr`
+      **->** luego de reiniciar `isInVBlankInterval`, también reinicia el `latch` de 📍  `PPUAddr`
   responses:
   - (*) ¿qué es este incremento de dirección? 🤔 [increment]
 
