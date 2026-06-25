@@ -6,4 +6,15 @@ main:
   - los gráficos están ubicados justo después del programa, ¡pero recuerda que son opcionales!
   - <{chr.png}>
   - 📚  si la cabecera dice que el juego usa CHR-RAM en lugar de CHR-ROM, solo retorna un ```javascript new Uint8Array(8192)```
-  responses: []
+  responses:
+  - (*) ¿parece que tengo un desfase de 99? [offby99]
+
+
+offby99:
+  messages:
+  - los archivos no necesariamente terminan con su <sección de caracteres> (pueden tener <relleno> o <datos extra> al final), ¡así que no asumas que lo hacen!
+  - recorta los bytes omitiendo la cabecera, el relleno de 512 bytes (si está presente) y el área de PRG-ROM
+  - y no uses ```javascript bytes.length``` ni slices negativos
+  - las pruebas agregan 99 <bytes de relleno> solo para asegurarse de que manejes esto correctamente, pero no <hardcodees> ese 99, ¡o nada funcionará!
+  responses:
+  - ...main

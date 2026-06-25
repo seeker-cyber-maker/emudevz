@@ -6,4 +6,15 @@ main:
   - graphics are located right after the program, but remember they're optional!
   - <{chr.png}>
   - 📚  if the header says that the game uses CHR-RAM instead of CHR-ROM, just return a ```javascript new Uint8Array(8192)```
-  responses: []
+  responses:
+  - (*) seems like I'm off by 99? [offby99]
+
+
+offby99:
+  messages:
+  - the files don't necessarily end with their <character section> (they can have <padding> or <extra data> at the end), so don't assume they do!
+  - trim the bytes by skipping the header, 512-byte padding (if present), and the PRG-ROM area
+  - and don't use ```javascript bytes.length``` or negative slices
+  - the tests add 99 <padding bytes> just to ensure you handle this correctly, but don't <hardcode> that 99, or nothing will work!
+  responses:
+  - ...main
