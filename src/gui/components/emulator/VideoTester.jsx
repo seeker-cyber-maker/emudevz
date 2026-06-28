@@ -40,6 +40,7 @@ export default class VideoTester extends PureComponent {
 						saveState={saveState}
 						settings={{
 							...this._settings,
+							useCartridge: true,
 							usePPU: true,
 							withLatestCode: false,
 						}}

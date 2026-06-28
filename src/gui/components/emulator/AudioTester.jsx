@@ -62,6 +62,7 @@ export default class AudioTester extends PureComponent {
 							saveState={saveState}
 							settings={{
 								...this._settings,
+								useCartridge: true,
 								useAPU: true,
 								withLatestCode: false,
 							}}
