@@ -15,4 +15,8 @@ function newRom(prgBytes = [], header = newHeader()) {
 	return bytes;
 }
 
-export default { newHeader, newRom };
+function toHex(n, length = 4) {
+	return `0x${n.toString(16).padStart(length, "0")}`;
+}
+
+export default { newHeader, newRom, toHex };

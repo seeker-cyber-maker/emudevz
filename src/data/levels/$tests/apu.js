@@ -1,4 +1,5 @@
-const { evaluate, byte, lodash: _ } = $;
+const { evaluate, testHelpers, byte, lodash: _ } = $;
+const { toHex } = testHelpers;
 
 let mainModule, Console;
 before(async () => {
@@ -204,9 +205,10 @@ it("connects the audio registers to CPU memory (<reads>)", () => {
       try {
         expect(result).to.equal(returnValue);
       } catch (e) {
-        const addressStr = `0x${address.toString(16).padStart(4, "0")}`;
         throw new Error(
-          `\`cpuMemory.read(${addressStr})\` did call \`${key}.onRead()\`, but it didn't return the value that the register provided.`
+          `\`cpuMemory.read(${toHex(
+            address
+          )})\` did call \`${key}.onRead()\`, but it didn't return the value that the register provided.`
         );
       }
     } else {

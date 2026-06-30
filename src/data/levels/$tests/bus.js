@@ -1,4 +1,5 @@
-const { evaluate, filesystem, byte } = $;
+const { evaluate, filesystem, testHelpers, byte } = $;
+const { toHex } = testHelpers;
 
 let mainModule;
 before(async () => {
@@ -75,7 +76,7 @@ it("can read from RAM ($0000-$07FF)", () => {
   for (let i = 0; i < 2048; i++) {
     const value = byte.random();
     memory.ram[i] = value;
-    expect(memory.read(i)).to.equalN(value, `read(${i})`);
+    expect(memory.read(i)).to.equalN(value, `read(${toHex(i)})`);
   }
 })({
   locales: {
@@ -91,7 +92,7 @@ it("reading RAM mirror results in <RAM reads>", () => {
   for (let i = 0x0800; i < 0x0800 + 0x1800; i++) {
     const value = byte.random();
     memory.ram[(i - 0x0800) % 0x0800] = value;
-    expect(memory.read(i)).to.equalN(value, `read(${i})`);
+    expect(memory.read(i)).to.equalN(value, `read(${toHex(i)})`);
   }
 })({
   locales: {
@@ -162,13 +163,14 @@ it("can read from the mapper ($4020-$FFFF)", () => {
   const memory = new CPUMemory();
   const random = byte.random();
   const mapper = {
-    cpuRead: (address) => address * random,
+    cpuRead: (address) => byte.toU8(address * random),
     cpuWrite: () => {},
   };
   memory.onLoad({}, {}, mapper, []);
 
   for (let i = 0x4020; i <= 0xffff; i++) {
-    expect(memory.read(i)).to.equalHex(i * random, `read(${i})`);
+    const expected = byte.toU8(i * random);
+    expect(memory.read(i)).to.equalHex(expected, `read(${toHex(i)})`);
   }
 })({
   locales: {

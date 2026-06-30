@@ -1,4 +1,5 @@
-const { evaluate, byte } = $;
+const { evaluate, testHelpers, byte } = $;
+const { toHex } = testHelpers;
 
 let mainModule, Console;
 before(async () => {
@@ -270,13 +271,14 @@ it("`PPUMemory`: connects the mapper (<reads>)", () => {
 
   const random = byte.random();
   const mapper = {
-    ppuRead: (address) => address * random,
+    ppuRead: (address) => byte.toU8(address * random),
     ppuWrite: () => {},
   };
   ppu.memory.onLoad(dummyCartridge, mapper);
 
   for (let i = 0x0000; i <= 0x1fff; i++) {
-    expect(ppu.memory.read(i)).to.equalHex(i * random, `read(${i})`);
+    const expected = byte.toU8(i * random);
+    expect(ppu.memory.read(i)).to.equalHex(expected, `read(${toHex(i)})`);
   }
 })({
   locales: {
@@ -396,9 +398,10 @@ it("connects the video registers to CPU memory (<reads>)", () => {
     try {
       expect(result).to.equal(returnValue);
     } catch (e) {
-      const addressStr = `0x${address.toString(16).padStart(4, "0")})`;
       throw new Error(
-        `\`cpuMemory.read(${addressStr})\` did call \`${name}.onRead()\`, but it didn't return the value that the register provided.`
+        `\`cpuMemory.read(${toHex(
+          address
+        )})\` did call \`${name}.onRead()\`, but it didn't return the value that the register provided.`
       );
     }
   });
