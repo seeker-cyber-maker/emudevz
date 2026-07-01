@@ -1267,13 +1267,13 @@ export default class PPU {
 	}
 
 	_onPreLine() {
-		if (!this.registers.ppuMask.isRenderingEnabled()) return;
-
 		if (this.cycle === 1) {
 			this.registers.ppuStatus.isInVBlankInterval = 0;
 			this.registers.ppuStatus.spriteOverflow = 0;
 			this.registers.ppuStatus.sprite0Hit = 0;
 		}
+
+		if (!this.registers.ppuMask.isRenderingEnabled()) return;
 
 		this.loopy.onPreLine(this.cycle);
 	}

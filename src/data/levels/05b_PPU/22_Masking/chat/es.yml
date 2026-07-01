@@ -53,7 +53,16 @@ exercise:
   - |-
     📚  en 🖥️  `PPU`, cambia:
     **_onPreLine()**:
-      **->** en la primera línea, si `!isRenderingEnabled()` en 🎭  PPUMask, ¡retorna!
+      **->** en la <última línea>, si `!isRenderingEnabled()` en 🎭  PPUMask, ¡retorna!
+      **->** tu código debería verse así:
+        ```javascript
+        if (this.cycle === 1) {
+          // ... reinicia las banderas de PPUStatus ...
+        }
+        
+        if (!this.registers.ppuMask.isRenderingEnabled()) return;
+        
+        // <<¡agregaremos más código aquí después!>>```
     **_onVisibleLine()**:
       **->** en la <última línea>, si `!isRenderingEnabled()` en 🎭  PPUMask, ¡retorna!
       **->** tu código debería verse así:

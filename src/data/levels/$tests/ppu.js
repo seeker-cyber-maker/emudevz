@@ -2541,44 +2541,6 @@ it("`PPUMask`: has an `isRenderingEnabled` method that returns ~true~ if the bac
   use: ({ id }, book) => id >= book.getId("5b.22"),
 });
 
-it("doesn't reset anything on ~scanline=-1~, ~cycle=1~ if rendering is <off>", () => {
-  const PPU = mainModule.default.PPU;
-  const ppu = new PPU({});
-  ppu.memory?.onLoad?.(dummyCartridge, dummyMapper);
-  ppu.registers?.ppuMask?.onWrite?.(0x00);
-
-  for (let cycle = 0; cycle < 341; cycle++) {
-    ppu.scanline = -1;
-    ppu.cycle = cycle;
-    ppu.registers.ppuStatus.isInVBlankInterval = 1;
-    ppu.registers.ppuStatus.spriteOverflow = 1;
-    ppu.registers.ppuStatus.sprite0Hit = 1;
-
-    ppu.step(noop, noop);
-
-    if (cycle === 1) {
-      expect(ppu.registers.ppuStatus.isInVBlankInterval).to.equalN(
-        1,
-        "isInVBlankInterval"
-      );
-      expect(ppu.registers.ppuStatus.isInVBlankInterval).to.equalN(
-        1,
-        "spriteOverflow"
-      );
-      expect(ppu.registers.ppuStatus.isInVBlankInterval).to.equalN(
-        1,
-        "sprite0Hit"
-      );
-    }
-  }
-})({
-  locales: {
-    es:
-      "no reinicia nada en ~scanline=-1~, ~cycle=1~ si el renderizado está <desactivado>",
-  },
-  use: ({ id }, book) => id >= book.getId("5b.22"),
-});
-
 it("`SpriteRenderer`: does <NOT> set the sprite-zero hit flag when background is hidden OR sprites are hidden by `PPUMask`", () => {
   const PPU = mainModule.default.PPU;
   const ppu = new PPU({});
