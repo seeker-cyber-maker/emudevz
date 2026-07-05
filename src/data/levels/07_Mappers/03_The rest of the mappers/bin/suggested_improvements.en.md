@@ -72,9 +72,6 @@ Of course, there are many ways of handling pending interrupts and acknowledging 
 
 There are many areas in which the PPU can be improved upon as well. However, such a topic would be far too extensive and out of scope for this small suggestions document. Instead, here are two short examples of things that can be improved:
 
-
-- `PPU::_onPreLine()` should reset `PPUStatus`'s flags even if rendering is disabled. This can fix a screen flickering issue in some games.
-
 - Dummy tiles in `BackgroundRenderer`: The real NEEES's PPU actually fetches more than `32` tiles per scanline, but doesn't do much with them, and some mappers like `MMC2` and `MMC4` look for these! For simplicity, the previous chapters only fetched `32`. Doing these otherwise unused fetches will allow certain games using `MMC2` and `MMC4` to function without graphical glitches. In `BackgroundRenderer::renderScanline()`, have the loop continue to `x < 272` and only plot background pixels when `x < 256` (let the loop still do everything else, no further changes needed). Upon doing this, you'll notice that the game involving `an underdog who aspires to be the top boxer` should no longer have a corrupted/glitched boxing ring!
 
 - `SpriteRenderer`: If you end up improving your PPU so the `boxing game` will run, there's one small change you'll want to make to sprite rendering. You'll notice that the opponent boxer will turn into a scrambled mess of glitched tiles when they perform their special attacks. To correct this, you can simply stop the `_evaluate()` method from returning a reversed list of sprites. However! This creates problems in other games, like the `third plumber game`, which wants the sprite list reversed so it can put enemies behind pipes, to create the illusion of enemies rising up from them. So, to reconcile this, you might want to either:
