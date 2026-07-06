@@ -41,6 +41,7 @@ class SettingsModal extends PureComponent {
 		isLoadingSaveBackup: false,
 		isLoadingSaveRestore: false,
 		isLoadingSaveDelete: false,
+		showExtendedButtons: false,
 		keyBindingsExpanded: false,
 		advancedSettingsExpanded: false,
 	};
@@ -54,7 +55,6 @@ class SettingsModal extends PureComponent {
 			crtFilter,
 			setCrtFilter,
 			open,
-			gameMode,
 			keyBindings,
 			advancedSettings,
 		} = this.props;
@@ -64,6 +64,7 @@ class SettingsModal extends PureComponent {
 			isLoadingSaveBackup,
 			isLoadingSaveRestore,
 			isLoadingSaveDelete,
+			showExtendedButtons,
 			keyBindingsExpanded,
 			advancedSettingsExpanded,
 		} = this.state;
@@ -175,10 +176,33 @@ class SettingsModal extends PureComponent {
 								/>
 							</Form.Label>
 							{open && (
-								<div className={classNames(styles.options, styles.controls)}>
-									<GamepadMapper player={1} extended={gameMode === "free"} />
-									<GamepadMapper player={2} extended={gameMode === "free"} />
-								</div>
+								<>
+									<Form.Check
+										type="checkbox"
+										id="show-extended-buttons"
+										label={locales.get("show_extended_buttons")}
+										className={styles.showExtendedButtons}
+										checked={showExtendedButtons}
+										onChange={(e) => {
+											this.setState({
+												showExtendedButtons: e.target.checked,
+											});
+										}}
+									/>
+
+									<div className={classNames(styles.options, styles.controls)}>
+										<GamepadMapper
+											key={`gamepad-1-${showExtendedButtons}`}
+											player={1}
+											extended={showExtendedButtons}
+										/>
+										<GamepadMapper
+											key={`gamepad-2-${showExtendedButtons}`}
+											player={2}
+											extended={showExtendedButtons}
+										/>
+									</div>
+								</>
 							)}
 						</Form.Group>
 						<Form.Group style={{ marginTop: MARGIN }}>
@@ -427,6 +451,7 @@ class SettingsModal extends PureComponent {
 		this.setState({
 			areYouSureRestore: false,
 			areYouSureDelete: false,
+			showExtendedButtons: false,
 			keyBindingsExpanded: false,
 			advancedSettingsExpanded: false,
 		});
@@ -439,7 +464,6 @@ const mapStateToProps = ({ savedata }) => ({
 	chatSpeed: savedata.chatSpeed,
 	crtFilter: savedata.crtFilter,
 	emulatorSettings: savedata.emulatorSettings,
-	gameMode: savedata.gameMode,
 	keyBindings: savedata.keyBindings,
 	advancedSettings: savedata.advancedSettings,
 });

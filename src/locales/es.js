@@ -245,6 +245,7 @@ export default {
 	search_files: "Buscar archivos...",
 	select_a_chapter: "Selecciona un capítulo",
 	settings: "Opciones",
+	show_extended_buttons: "Mostrar botones adicionales",
 	shell_command_not_found: "comando no encontrado",
 	stack: "Pila",
 	step_forward: "Avanzar",

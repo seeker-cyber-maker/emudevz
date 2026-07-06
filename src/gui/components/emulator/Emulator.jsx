@@ -16,7 +16,6 @@ import styles from "./Emulator.module.css";
 
 export const SAVESTATE_KEY_PREFIX = "persist:emudevz:savestate-";
 export const SAVESTATE_RESET_COMMAND = "reset";
-const EXTENDED_BUTTONS = ["BUTTON_X", "BUTTON_Y", "BUTTON_L", "BUTTON_R"];
 const SAVE_FILE_EXTENSION = ".sav";
 
 const mapTypeToInput = (inputType, keyboardInput, gamepadInputs) => {
@@ -305,11 +304,6 @@ export default class Emulator extends Component {
 				if (selectedButton == null) selectedButton = button;
 				else return null;
 			}
-		}
-
-		const isFreeMode = Level.current.isFreeMode();
-		if (selectedButton && !isFreeMode) {
-			if (EXTENDED_BUTTONS.includes(selectedButton)) return null;
 		}
 
 		return selectedButton;

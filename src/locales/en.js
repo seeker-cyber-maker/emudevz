@@ -235,6 +235,7 @@ export default {
 	search_files: "Search files...",
 	select_a_chapter: "Select a chapter",
 	settings: "Settings",
+	show_extended_buttons: "Show extended buttons",
 	shell_command_not_found: "command not found",
 	stack: "Stack",
 	step_forward: "Step",
