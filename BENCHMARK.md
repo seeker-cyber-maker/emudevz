@@ -29,6 +29,7 @@ read or write live browser, Electron, Steam, or IndexedDB storage directly.
 npm run cli -- test <level>
 npm run cli -- test <level> --from <earlier-level>
 npm run cli -- test <level> --solution-dir <dir>
+npm run cli -- test <level> --language <en|es>
 npm run cli -- test <level> --json
 npm run cli -- save check <file.devz>
 npm run cli -- save restore <file.devz> --to <dir>
@@ -41,6 +42,7 @@ Examples:
 npm run cli -- test 1.1
 npm run cli -- test 5a.16 --solution-dir ./solutions/cpu
 npm run cli -- test 5a.16 --from 5a.1 --solution-dir ./solutions/cpu
+npm run cli -- test 5a.16 --language es
 npm run --silent cli -- test cpu-the-golden-log --json
 npm run cli -- save check ./backup.devz
 npm run cli -- save restore ./backup.devz --to ./save-package
@@ -48,6 +50,10 @@ npm run cli -- save backup ./save-package --to ./backup-copy.devz
 ```
 
 Run `npm run cli -- --help` for the current syntax.
+
+Test messages default to English. Use `--language es` to display an
+already-localized Spanish assertion message when the level supplies one; tests
+without a Spanish variant retain their original message.
 
 ## Validation
 

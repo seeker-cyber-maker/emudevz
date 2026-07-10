@@ -880,7 +880,7 @@ function getLevelTestSources(level) {
 	return sources;
 }
 
-function buildTestDefinition(code, $, book, level, idProvider) {
+function buildTestDefinition(code, $, book, level, idProvider, language) {
 	let beforeRun = null;
 	let beforeEachRun = null;
 	let afterEachRun = null;
@@ -907,7 +907,7 @@ function buildTestDefinition(code, $, book, level, idProvider) {
 			const testDefinition = { id: ++idProvider.id, name, test };
 			tests.push(testDefinition);
 			return (options = {}) => {
-				testDefinition.name = options.locales?.en || name;
+				testDefinition.name = options.locales?.[language] || name;
 				if (options.use && !options.use({ id: level.globalId }, book))
 					tests.pop();
 			};
@@ -993,7 +993,7 @@ async function runTests(testFiles, buildStack) {
 	return _.orderBy(results, "passed", "desc");
 }
 
-async function runLevel({ book, level, solutionDir }) {
+async function runLevel({ book, level, solutionDir, language }) {
 	const filesystem = new VirtualFilesystem();
 	seedFilesystem(filesystem, book, level);
 	copySolution(filesystem, solutionDir, book, level);
@@ -1026,7 +1026,14 @@ async function runLevel({ book, level, solutionDir }) {
 	const testFiles = [];
 	for (const testFile of getLevelTestSources(level)) {
 		const code = fs.readFileSync(testFile.path, "utf8");
-		const definition = buildTestDefinition(code, $, book, level, idProvider);
+		const definition = buildTestDefinition(
+			code,
+			$,
+			book,
+			level,
+			idProvider,
+			language
+		);
 		if (definition.tests.length > 0) {
 			testFiles.push({
 				fileName: testFile.fileName,
@@ -1092,6 +1099,7 @@ async function runCommand(options) {
 				book,
 				level,
 				solutionDir: options.solutionDir,
+				language: options.language,
 			})
 		);
 	}
@@ -1262,7 +1270,7 @@ async function runSaveCommand(options) {
 
 function printUsage() {
 	console.log(`Usage:
-  npm run cli -- test <level> [--from <level>] [--solution-dir <dir>] [--json]
+  npm run cli -- test <level> [--from <level>] [--solution-dir <dir>] [--language <en|es>] [--json]
   npm run cli -- save check <file.devz>
   npm run cli -- save restore <file.devz> --to <dir> [--force]
   npm run cli -- save backup <dir> --to <file.devz>
@@ -1277,6 +1285,7 @@ Examples:
   npm run cli -- test 1.1
   npm run cli -- test 5a.16 --solution-dir ./solutions/cpu
   npm run cli -- test 5a.16 --from 5a.1 --solution-dir ./solutions/cpu
+  npm run cli -- test 5a.16 --language es
   node ./bin/emudevz-cli.mjs test cpu-the-golden-log --json
   npm run --silent cli -- test 5a.16 --json
   npm run cli -- save check ./backup.devz
@@ -1301,6 +1310,7 @@ function parseArgs(argv) {
 		to: null,
 		force: false,
 		json: false,
+		language: "en",
 	};
 
 	if (command === "save") options.saveSubject = rest.shift() ?? null;
@@ -1317,6 +1327,12 @@ function parseArgs(argv) {
 			options.force = true;
 		} else if (arg === "--json") {
 			options.json = true;
+		} else if (arg === "--language") {
+			const language = rest[++i];
+			if (!["en", "es"].includes(language)) {
+				throw new Error(`Unsupported language: ${language}. Use en or es.`);
+			}
+			options.language = language;
 		} else {
 			throw new Error(`Unknown option: ${arg}`);
 		}
