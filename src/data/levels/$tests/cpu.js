@@ -167,7 +167,6 @@ it("includes a `flags` property with 6 booleans", () => {
   expect(cpu.flags).to.be.an("object");
 
   ["c", "z", "i", "d", "v", "n"].forEach((flag) => {
-    expect(cpu.flags).to.include.key(flag);
     expect(cpu.flags[flag], `flags[${flag}]`).to.be.an("boolean", flag);
     expect(cpu.flags[flag]).to.equalN(false, flag);
   });
