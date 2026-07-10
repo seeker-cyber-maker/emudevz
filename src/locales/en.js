@@ -199,6 +199,7 @@ export default {
 		"⚠️  Your code has errors. The `$` object won't be available.",
 	repl_code_success: "💬  Inspect your main code using the `$` object.",
 	reset_level: "Reset level progress",
+	reset_save: "Reset save",
 	resize_warning: "Resizing is not supported while typing.",
 	restore: "Restore",
 	restore_defaults: "Restore defaults",

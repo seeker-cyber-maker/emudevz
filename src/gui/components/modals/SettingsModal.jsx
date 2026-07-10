@@ -339,7 +339,7 @@ class SettingsModal extends PureComponent {
 										{isLoadingSaveDelete
 											? "⌛"
 											: (areYouSureDelete ? "❗❗❗ " : "💥 ") +
-											  locales.get("delete")}
+											  locales.get("reset_save")}
 									</Button>
 								</div>
 							</div>

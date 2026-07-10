@@ -208,6 +208,7 @@ export default {
 	repl_code_success:
 		"💬  Inspecciona tu código principal usando el objeto `$`.",
 	reset_level: "Reiniciar progreso del nivel",
+	reset_save: "Reiniciar partida",
 	resize_warning: "No se puede redimensionar y escribir a la vez.",
 	restore: "Restaurar",
 	restore_defaults: "Restaurar valores por defecto",
