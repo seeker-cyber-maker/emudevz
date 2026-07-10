@@ -8,6 +8,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "cli": "node ./bin/emudevz-cli.mjs",
     "package": "rimraf public/levels && node ./scripts/package-levels.js",
     "build": "vite build",
     "deploy": "bash ./scripts/deploy.sh",

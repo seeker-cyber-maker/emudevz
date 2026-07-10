@@ -69,6 +69,10 @@ npm start
   `npm run build`
 - Deploy to GitHub Pages:
   `npm run deploy <GH_USERNAME> <GH_TOKEN>`
+- Run level tests from the CLI:
+  `npm run cli -- test <level>`
+
+For headless testing and benchmark usage, see [BENCHMARK.md](BENCHMARK.md).
 
 ### Generate licenses
 
