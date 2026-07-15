@@ -1,5 +1,7 @@
 # EmuDevz
 
+![Are ya winning, son? Yes, Dad.](docs/assets/are-ya-winning-son.png)
+
 🕹️ A game about building emulators! [Check it out!](https://afska.github.io/emudevz)
 
 [![EmuDevz: Reveal Trailer](docs/thumbnail.png)](https://www.youtube.com/watch?v=sBhFulSp4KQ)
